@@ -2,7 +2,7 @@
   "name": "siyuan-mcp-server",
   "author": "siyuan-mcp-team",
   "url": "https://github.com/max-miksher/siyuan-mcp-server.git",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "minAppVersion": "2.10.14",
   "backends": [
     "all"
