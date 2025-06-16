@@ -1,8 +1,8 @@
 {
-  "name": "plugin-sample-vite-vue",
-  "author": "wetoria",
-  "url": "https://github.com/Wetoria/plugin-sample-vite-vue",
-  "version": "0.0.1",
+  "name": "siyuan-mcp-server",
+  "author": "siyuan-mcp-team",
+  "url": "https://github.com/siyuan-note/siyuan-mcp-server",
+  "version": "0.1.2",
   "minAppVersion": "2.10.14",
   "backends": [
     "all"
@@ -11,14 +11,16 @@
     "all"
   ],
   "displayName": {
-    "default": "zh_CN",
-    "en_US": "plugin-sample-vite-vue",
-    "zh_CN": "plugin-sample-vite-vue"
+    "default": "en_US",
+    "en_US": "SiYuan MCP Server",
+    "zh_CN": "思源 MCP 服务器",
+    "ru_RU": "SiYuan MCP Сервер"
   },
   "description": {
-    "default": "zh_CN",
-    "en_US": "plugin-sample-vite-vue",
-    "zh_CN": "plugin-sample-vite-vue"
+    "default": "en_US",
+    "en_US": "SiYuan plugin with embedded MCP server for remote API access via SSE transport",
+    "zh_CN": "带有嵌入式 MCP 服务器的思源插件，通过 SSE 传输提供远程 API 访问",
+    "ru_RU": "Плагин SiYuan со встроенным MCP сервером для удаленного доступа к API через SSE транспорт"
   },
   "readme": {
     "default": "zh_CN",
@@ -29,5 +31,5 @@
     "custom": [
     ]
   },
-  "keywords": []
+  "keywords": ["mcp", "server", "api", "remote", "sse", "automation", "integration"]
 }

@@ -1,9 +1,28 @@
 <template>
   <div class="plugin-app-main">
+    <!-- Dashboard Toggle Button -->
+    <div class="dashboard-toggle" v-if="!showDashboard">
+      <SyButton @click="toggleDashboard" class="dashboard-btn">
+        <SyIcon name="iconServer" />
+        MCP Dashboard
+      </SyButton>
+    </div>
 
-    <div class="demo">
+    <!-- Dashboard Component -->
+    <div v-if="showDashboard" class="dashboard-container">
+      <div class="dashboard-header">
+        <SyButton @click="toggleDashboard" class="close-btn">
+          <SyIcon name="iconClose" />
+          Close Dashboard
+        </SyButton>
+      </div>
+      <Dashboard />
+    </div>
+
+    <!-- Original Demo Content -->
+    <div class="demo" v-if="!showDashboard">
       <!-- Show text in siyuan at center -->
-      <div>Hello Siyuan.</div>
+      <div>Hello Siyuan MCP Server.</div>
 
 
       <div>
@@ -91,9 +110,17 @@ import SyIcon from '@/components/SiyuanTheme/SyIcon.vue'
 import SyInput from '@/components/SiyuanTheme/SyInput.vue'
 import SySelect from '@/components/SiyuanTheme/SySelect.vue'
 import SyTextarea from '@/components/SiyuanTheme/SyTextarea.vue'
+import Dashboard from '@/components/Dashboard.vue'
 import { usePlugin } from '@/main'
 import { onMounted, ref, watchEffect } from 'vue'
 
+
+// Dashboard state
+const showDashboard = ref(false)
+
+const toggleDashboard = () => {
+  showDashboard.value = !showDashboard.value
+}
 
 const isChecked = ref(false)
 
@@ -193,6 +220,73 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+
+  .dashboard-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    pointer-events: auto;
+  }
+
+  .dashboard-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--b3-theme-primary);
+    color: var(--b3-theme-on-primary);
+    border-radius: var(--b3-border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+  }
+
+  .dashboard-btn:hover {
+    background: var(--b3-theme-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .dashboard-container {
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+  }
+
+  .dashboard-header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  .close-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--b3-theme-on-surface);
+    border-radius: var(--b3-border-radius);
+    border: 1px solid var(--b3-border-color);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
   .demo {
     display: flex;
